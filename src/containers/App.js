@@ -4,6 +4,13 @@ import { bindActionCreators } from 'redux'
 import MessageActions from '../actions/MessageActions.js'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nickname: 'guest'
+    }
+  }
+
   componentWillMount() {
     this.props.open();
   }
@@ -23,7 +30,8 @@ class App extends React.Component {
             return <li key={index}>{message}</li>
           })}
         </ul>
-        <button onClick={ () => { this.props.send('!!!');} } >!!!</button>
+        <input onChange={(event) => {this.setState({nickname: event.target.value})}}/>
+        <button onClick={() => { this.props.send(this.state.nickname);} }>send</button>
       </div>
     );
   }

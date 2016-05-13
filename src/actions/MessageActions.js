@@ -1,5 +1,3 @@
-
-
 function receive(message) {
   return {
     type: 'MESSAGE_RECEIVED',
