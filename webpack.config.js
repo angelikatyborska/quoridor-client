@@ -1,4 +1,6 @@
 var path = require("path");
+var webpack = require('webpack');
+
 module.exports = {
   entry: {
     app: ["./src/app.js"]
@@ -10,11 +12,14 @@ module.exports = {
   },
   debug: true,
   devtool: "#eval-source-map",
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel-loader', 'eslint-loader'],
+        loaders: ['react-hot', 'babel-loader', 'eslint-loader'],
         exclude: /node_modules/
       }
     ]
