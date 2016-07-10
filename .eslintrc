@@ -17,7 +17,9 @@
   "extends": "airbnb",
   "rules": {
     "react/prop-types": 1,
+    "react/prefer-stateless-function": 1,
 
-    "brace-style": [1, "stroustrup", {"allowSingleLine": true}]
+    "brace-style": [1, "stroustrup", {"allowSingleLine": true}],
+    "no-unused-vars": 1
   }
 }

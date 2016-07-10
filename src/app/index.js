@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import messages from '../message/MessageReducer';
+import message from '../message/MessageReducer';
+import player from '../player/PlayerReducer';
+import room from '../room/RoomReducer';
 
 export default combineReducers({
-  messages,
+  message,
+  player,
+  room,
 });

@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MessageActions from '../message/MessageActions.js';
+import { open, send } from '../message/MessageActions.js';
+
+import Players from '../player/PlayersContainer';
+import Rooms from '../room/RoomsContainer';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,25 +12,27 @@ class App extends React.Component {
     this.state = {
       type: 'JOIN',
     };
-  }
 
-  componentWillMount() {
     this.props.open();
   }
 
   render() {
     return (
       <div>
-        {this.state.type}
+        <h1>Quoridor</h1>
+        <h2>Players</h2>
+        <Players />
+        <h2>Rooms</h2>
+        <Rooms />
         <h2>Received</h2>
         <ul>
-          {this.props.messages.received.map((message, index) => (
+          {this.props.message.received.map((message, index) => (
             <li key={index}>{JSON.stringify(message)}</li>
             ))}
         </ul>
         <h2>Sent</h2>
         <ul>
-          {this.props.messages.sent.map((message, index) => (
+          {this.props.message.sent.map((message, index) => (
             <li key={index}>{JSON.stringify(message)}</li>
           ))}
         </ul>
@@ -82,10 +87,10 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  messages: state.messages,
+  message: state.message,
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators(MessageActions, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ open, send, close }, dispatch);
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
 

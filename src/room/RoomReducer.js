@@ -1,12 +1,12 @@
 export default function (state, action) {
   switch (action.type) {
-    case 'SET_PLAYERS_IN_LOBBY':
+    case 'SET_ROOMS':
       return {
         ...state,
-        lobby: action.players,
+        list: action.rooms,
       };
 
     default:
-      return state || { lobby: [] };
+      return state || { list: [] };
   }
 }
