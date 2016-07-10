@@ -16,7 +16,7 @@ function send(message)  {
   return (dispatch, getState) => {
 
     if (getState().messages.websocket) {
-      getState().messages.websocket.send(message);
+      getState().messages.websocket.send(JSON.stringify(message));
       dispatch({
         type: 'MESSAGE_SENT',
         message: message
