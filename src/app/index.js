@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import messages from './messages';
+import messages from '../message/MessageReducer';
 
 export default combineReducers({
   messages,

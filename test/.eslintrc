@@ -1,0 +1,18 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0, // React is defined globally in tests
+
+    "no-unused-expressions": [0] // allow expect().to.be.true
+  },
+  "globals": {
+    // all global objects set in setup.js
+    "React": true,
+    "expect": true,
+    "sinon": true,
+    "proxyquire": true
+  }
+}
+

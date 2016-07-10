@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/webpack-dev-server --inline --hot"
+    "start": "node_modules/.bin/webpack-dev-server --inline --hot",
+    "lint": "eslint --fix",
+    "pretest": "npm run lint -- test",
+    "test": "NODE_PATH=$NODE_PATH:./src mocha --compilers js:babel-core/register --recursive",
+    "posttest": "npm run lint -- src"
   },
   "author": "",
   "license": "ISC",
@@ -26,12 +29,20 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
+    "babel-polyfill": "^6.9.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
     "eslint": "^3.0.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-react": "^5.2.2",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "webpack-dev-server": "^1.14.1"
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MessageActions from '../actions/MessageActions.js';
+import MessageActions from '../message/MessageActions.js';
 
 class App extends React.Component {
   constructor(props) {
