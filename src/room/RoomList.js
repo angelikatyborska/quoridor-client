@@ -20,7 +20,7 @@ class RoomList extends React.Component {
         {this.props.rooms.map(room =>
           <li key={room.id}>
             <h3>{room.capacity - room.spots_left} / {room.capacity} - {room.id}</h3>
-            <h4>Playexrs</h4>
+            <h4>Players</h4>
             <PlayerList players={room.players} />
           </li>
         )}

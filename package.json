@@ -2,7 +2,7 @@
   "name": "redux-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app/index.js",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint --fix",
@@ -22,6 +22,8 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",

@@ -1,5 +1,6 @@
 import { setPlayersInLobby } from '../player/PlayerActions';
 import { setRooms } from '../room/RoomActions';
+import { joined } from '../lobby/LobbyActions';
 
 function receive(message) {
   return {
@@ -12,9 +13,18 @@ function parse(message) {
   return (dispatch) => {
     const parsed = JSON.parse(message);
 
-    if (parsed.type === 'LOBBY_UPDATE') {
-      dispatch(setPlayersInLobby(parsed.data.players_in_lobby));
-      dispatch(setRooms(parsed.data.rooms));
+    switch (parsed.type) {
+      case 'LOBBY_UPDATE':
+        dispatch(setPlayersInLobby(parsed.data.players_in_lobby));
+        dispatch(setRooms(parsed.data.rooms));
+        break;
+
+      case 'JOINED':
+        dispatch(joined(parsed.data));
+        break;
+
+      default:
+        break;
     }
   };
 }

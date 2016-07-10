@@ -3,25 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { open, send } from '../message/MessageActions.js';
 
-import Players from '../player/PlayersContainer';
+import PlayersInLobby from '../lobby/LobbyContainer';
 import Rooms from '../room/RoomsContainer';
 
-class App extends React.Component {
+class Lobby extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       type: 'JOIN',
     };
-
-    this.props.open();
   }
 
   render() {
     return (
       <div>
-        <h1>Quoridor</h1>
-        <h2>Players</h2>
-        <Players />
+        <h2>Lobby</h2>
+        <PlayersInLobby />
         <h2>Rooms</h2>
         <Rooms />
         <h2>Received</h2>
@@ -90,8 +87,8 @@ const mapStateToProps = (state) => ({
   message: state.message,
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ open, send, close }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ open, send }, dispatch);
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+const LobbyContainer = connect(mapStateToProps, mapDispatchToProps)(Lobby);
 
-export default AppContainer;
+export default LobbyContainer;

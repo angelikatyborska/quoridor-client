@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { add } from '../player/PlayerActions.js';
 
-import PlayerList from './PlayerList';
+import PlayerList from '../player/PlayerList';
 
 class Players extends React.Component {
   static propTypes = {
