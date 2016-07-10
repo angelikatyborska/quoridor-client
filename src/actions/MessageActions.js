@@ -1,36 +1,35 @@
 function receive(message) {
   return {
     type: 'MESSAGE_RECEIVED',
-    message: message
-  }
+    message,
+  };
 }
 
-function close(message) {
+function close() {
   return {
     type: 'WEBSOCKET_CLOSED',
-    websocket: null
-  }
+    websocket: null,
+  };
 }
 
-function send(message)  {
+function send(message) {
   return (dispatch, getState) => {
-
     if (getState().messages.websocket) {
       getState().messages.websocket.send(JSON.stringify(message));
       dispatch({
         type: 'MESSAGE_SENT',
-        message: message
-      })
+        message,
+      });
     }
     else {
       console.log('socket not available');
     }
-  }
+  };
 }
 
 function open() {
   return (dispatch) => {
-    let websocket = new WebSocket("ws://localhost:3000");
+    const websocket = new WebSocket('ws://localhost:3000');
 
     websocket.onopen = function () {
       websocket.onmessage = function (event) {
@@ -46,12 +45,12 @@ function open() {
 
     dispatch({
       type: 'WEBSOCKET_OPENED',
-      websocket: websocket
+      websocket,
     });
-  }
+  };
 }
 
 export default {
-  open: open,
-  send: send
-}
+  open,
+  send,
+};
