@@ -12,6 +12,12 @@ export default function (state, action) {
         currentRoom: action.room,
       };
 
+    case 'LEFT_ROOM':
+      return {
+        ...state,
+        currentRoom: {},
+      };
+
     default:
       return state || { currentRoom: {}, list: [] };
   }

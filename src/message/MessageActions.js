@@ -1,5 +1,5 @@
-import { setRooms, joinedRoom } from '../room/RoomActions';
 import { joined, setPlayersInLobby } from '../lobby/LobbyActions';
+import { setRooms, joinedRoom, leftRoom } from '../room/RoomActions';
 
 function receive(message) {
   return {
@@ -26,6 +26,10 @@ function parse(message) {
         dispatch(joinedRoom(parsed.data));
         break;
 
+      case 'LEFT_ROOM':
+        dispatch(leftRoom(parsed.data));
+        break;
+
       default:
         break;
     }
@@ -49,7 +53,7 @@ function send(message) {
       });
     }
     else {
-      console.log('socket not available');
+      alert('socket not available');
     }
   };
 }
@@ -60,14 +64,12 @@ function open() {
 
     websocket.onopen = function () {
       websocket.onmessage = function (event) {
-        console.log(event);
         dispatch(receive(event.data));
         dispatch(parse(event.data));
       };
     };
 
     websocket.onclose = function (event) {
-      console.log(event);
       dispatch(closed());
     };
 
@@ -80,7 +82,6 @@ function open() {
 
 function close() {
   return (dispatch, getState) => {
-    console.log('close');
     getState().message.websocket.close();
   };
 }

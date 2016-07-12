@@ -28,4 +28,25 @@ function joinedRoom(room) {
   };
 }
 
-export { setRooms, joinRoom, joinedRoom };
+function leaveRoom(id) {
+  return dispatch => {
+    const leaveMessage = {
+      type: 'LEAVE_ROOM',
+      data: { room_id: id },
+    };
+
+    dispatch(send(leaveMessage));
+  };
+}
+
+function leftRoom(room) {
+  return dispatch => {
+    const action = {
+      type: 'LEFT_ROOM',
+      room,
+    };
+    dispatch(action);
+  };
+}
+
+export { setRooms, joinRoom, joinedRoom, leaveRoom, leftRoom };
