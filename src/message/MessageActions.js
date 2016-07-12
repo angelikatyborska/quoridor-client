@@ -1,6 +1,5 @@
-import { setPlayersInLobby } from '../player/PlayerActions';
 import { setRooms } from '../room/RoomActions';
-import { joined } from '../lobby/LobbyActions';
+import { joined, setPlayersInLobby } from '../lobby/LobbyActions';
 
 function receive(message) {
   return {

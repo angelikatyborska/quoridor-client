@@ -1,5 +1,6 @@
 import React from 'react';
 import { open } from '../message/MessageActions.js';
+import JoinContainer from '../lobby/JoinContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -12,12 +13,16 @@ class AppContainer extends React.Component {
   render() {
     return (<div>
       <h1>Quoridor</h1>
-      {this.props.children}
+      {
+        this.props.currentPlayer.id ?
+          this.props.children :
+          <JoinContainer />
+      }
     </div>);
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({ currentPlayer: state.lobby.currentPlayer });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ open }, dispatch);
 

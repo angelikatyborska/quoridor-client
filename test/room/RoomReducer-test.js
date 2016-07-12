@@ -1,20 +1,20 @@
 import '../setup';
-import RoomReducer from '../../src/room/RoomReducer';
+import reducer from '../../src/room/RoomReducer';
 
 describe('RoomReducer', () => {
   it('has initial state', () => {
-    const initialState = RoomReducer(undefined, {type: ''});
+    const initialState = reducer(undefined, { type: '' });
 
-    expect(initialState).to.deep.equal({list: []});
+    expect(initialState).to.deep.equal({ list: [] });
   });
 
   describe('SET_ROOMS', () => {
     it('sets the list', () => {
-      const action = {type: 'SET_ROOMS', rooms: ['rooms']};
-      const oldState = {list: [1, 2, 3]};
-      const newState = RoomReducer(oldState, action);
+      const action = { type: 'SET_ROOMS', rooms: ['rooms'] };
+      const oldState = { list: [1, 2, 3] };
+      const newState = reducer(oldState, action);
 
-      expect(newState.list).to.deep.equal(['rooms'])
-    })
+      expect(newState.list).to.deep.equal(['rooms']);
+    });
   });
 });

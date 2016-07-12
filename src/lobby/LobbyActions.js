@@ -1,5 +1,4 @@
 import { send } from '../message/MessageActions';
-import { push } from 'react-router-redux';
 
 function join(nickname) {
   return dispatch => {
@@ -14,12 +13,11 @@ function join(nickname) {
 
 function joined(player) {
   return dispatch => {
-    const joinedMessage = {
+    const action = {
       type: 'JOINED',
-      data: player,
+      player,
     };
-    dispatch(joinedMessage);
-    dispatch(push('/lobby'));
+    dispatch(action);
   };
 }
 
@@ -31,4 +29,11 @@ function left(nickname) {
   // TODO: implement
 }
 
-export { join, joined, leave, left };
+function setPlayersInLobby(players) {
+  return {
+    type: 'SET_PLAYERS_IN_LOBBY',
+    players,
+  };
+}
+
+export { join, joined, leave, left, setPlayersInLobby };

@@ -1,9 +1,9 @@
 import message from '../message/MessageReducer';
-import player from '../player/PlayerReducer';
+import lobby from '../lobby/LobbyReducer';
 import room from '../room/RoomReducer';
 
 export default {
   message,
-  player,
+  lobby,
   room,
 };

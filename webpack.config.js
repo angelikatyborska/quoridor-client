@@ -11,7 +11,7 @@ module.exports = {
     filename: "bundle.js"
   },
   debug: true,
-  devtool: "#eval-source-map",
+  devtool: "#cheap-module-eval-source-map",
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],

@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { add } from '../player/PlayerActions.js';
 
 import PlayerList from '../player/PlayerList';
 
@@ -17,10 +16,10 @@ class Players extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  players: state.player.lobby,
+  players: state.lobby.players,
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ add }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
 
 const ConnectedPlayers = connect(mapStateToProps, mapDispatchToProps)(Players);
 

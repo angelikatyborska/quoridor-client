@@ -1,15 +1,33 @@
 import React, { PropTypes } from 'react';
 
 class Join extends React.Component {
-  join() {
-    this.props.join('John');
+  static propTypes = {
+    join: PropTypes.func.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      nickname: '', // TODO: add a cool random nickname
+    };
+  }
+
+  setNickname(event) {
+    this.setState({ nickname: event.target.value });
+  }
+
+  join(event) {
+    event.preventDefault();
+    this.props.join(this.state.nickname);
   }
 
   render() {
     return (
-      <div>
-        <button onClick={::this.join}>Join</button>
-      </div>
+      <form onSubmit={::this.join}>
+        Hello, how can I call you?
+        <input type="text" placeholder="Name" onChange={::this.setNickname} />
+        <button type="submit">Join</button>
+      </form>
     );
   }
 }
