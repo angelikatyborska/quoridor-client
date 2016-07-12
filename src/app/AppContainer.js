@@ -4,6 +4,8 @@ import JoinContainer from '../lobby/JoinContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import './app.scss';
+
 class AppContainer extends React.Component {
   constructor(props) {
     super(props);

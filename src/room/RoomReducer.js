@@ -6,7 +6,13 @@ export default function (state, action) {
         list: action.rooms,
       };
 
+    case 'JOINED_ROOM':
+      return {
+        ...state,
+        currentRoom: action.room,
+      };
+
     default:
-      return state || { list: [] };
+      return state || { currentRoom: {}, list: [] };
   }
 }

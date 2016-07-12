@@ -34,5 +34,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
-
-// TODO: add Sass

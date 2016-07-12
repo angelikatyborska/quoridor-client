@@ -5,7 +5,10 @@ describe('RoomReducer', () => {
   it('has initial state', () => {
     const initialState = reducer(undefined, { type: '' });
 
-    expect(initialState).to.deep.equal({ list: [] });
+    expect(initialState).to.deep.equal({
+      currentRoom: {},
+      list: [],
+    });
   });
 
   describe('SET_ROOMS', () => {

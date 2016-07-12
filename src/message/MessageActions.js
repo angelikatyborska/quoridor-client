@@ -1,4 +1,4 @@
-import { setRooms } from '../room/RoomActions';
+import { setRooms, joinedRoom } from '../room/RoomActions';
 import { joined, setPlayersInLobby } from '../lobby/LobbyActions';
 
 function receive(message) {
@@ -20,6 +20,10 @@ function parse(message) {
 
       case 'JOINED':
         dispatch(joined(parsed.data));
+        break;
+
+      case 'JOINED_ROOM':
+        dispatch(joinedRoom(parsed.data));
         break;
 
       default:

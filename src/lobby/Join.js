@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './join.scss';
 
 class Join extends React.Component {
   static propTypes = {
@@ -23,8 +24,9 @@ class Join extends React.Component {
 
   render() {
     return (
-      <form onSubmit={::this.join}>
-        Hello, how can I call you?
+      <form onSubmit={::this.join} className="join">
+        <h2>Hello!</h2>
+        <p>What's your name?</p>
         <input type="text" placeholder="Name" onChange={::this.setNickname} />
         <button type="submit">Join</button>
       </form>
