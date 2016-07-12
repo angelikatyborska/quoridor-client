@@ -5,6 +5,7 @@ import { open, send } from '../message/MessageActions.js';
 
 import PlayersInLobby from '../lobby/LobbyContainer';
 import Rooms from '../room/RoomsContainer';
+import RoomCreate from '../room/RoomCreateContainer';
 
 class Lobby extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Lobby extends React.Component {
         <PlayersInLobby />
         <h2>Rooms</h2>
         <Rooms />
+        <RoomCreate />
         <h2>Received</h2>
         <ul>
           {this.props.message.received.map((message, index) => (

@@ -20,6 +20,7 @@
     "react/prefer-stateless-function": 0,
 
     "brace-style": [1, "stroustrup", {"allowSingleLine": true}],
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "radix": 0,
   }
 }

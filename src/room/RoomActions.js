@@ -7,6 +7,24 @@ function setRooms(rooms) {
   };
 }
 
+function createRoom(capacity) {
+  return dispatch => {
+    const message = {
+      type: 'CREATE_ROOM',
+      data: { capacity },
+    };
+
+    dispatch(send(message));
+  };
+}
+
+function createdRoom(room) {
+  return {
+    type: 'CREATED_ROOM',
+    room,
+  };
+}
+
 function joinRoom(id) {
   return dispatch => {
     const joinMessage = {
@@ -19,12 +37,9 @@ function joinRoom(id) {
 }
 
 function joinedRoom(room) {
-  return dispatch => {
-    const action = {
-      type: 'JOINED_ROOM',
-      room,
-    };
-    dispatch(action);
+  return {
+    type: 'JOINED_ROOM',
+    room,
   };
 }
 
@@ -40,13 +55,10 @@ function leaveRoom(id) {
 }
 
 function leftRoom(room) {
-  return dispatch => {
-    const action = {
-      type: 'LEFT_ROOM',
-      room,
-    };
-    dispatch(action);
+  return {
+    type: 'LEFT_ROOM',
+    room,
   };
 }
 
-export { setRooms, joinRoom, joinedRoom, leaveRoom, leftRoom };
+export { setRooms, createRoom, createdRoom, joinRoom, joinedRoom, leaveRoom, leftRoom };
